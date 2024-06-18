@@ -1,0 +1,40 @@
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let group of userBelongedGroups">
+      <div class="card shadow rounded-10" style="width: 18rem">
+        <img
+          src="https://picsum.photos/50/50?random={{ getRandomInt(100) }}"
+          class="card-img-top"
+          alt="..."
+        />
+
+        <div class="card-body">
+          <h5 class="card-title" style="color: teal">
+            Group Name: {{ group.groupName }}
+          </h5>
+          <p class="card-text" style="color: blue">
+            Description: {{ group.groupDescription }}
+          </p>
+          <p
+            class="card-text"
+            style="color: blue"
+            *ngIf="group.createdBy != username"
+          >
+            Created by: {{ group.createdBy }}
+          </p>
+          <p
+            class="card-text"
+            *ngIf="group.createdBy == username"
+            style="color: blue"
+          >
+            Created by: You
+          </p>
+
+          <a href="#" class="btn btn-primary" style="background-color: teal"
+            >View Group</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
