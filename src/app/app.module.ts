@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { Error404Component } from './components/anonymousUser/error404/error404.component';
 import { UserHomeComponent } from './components/loggedInUser/user-home/user-home.component';
+import { GroupExpensesComponent } from './components/loggedInUser/group-expenses/group-expenses.component';
 
 
 
@@ -23,6 +24,7 @@ import { UserHomeComponent } from './components/loggedInUser/user-home/user-home
     LoginComponent,
     Error404Component,
     UserHomeComponent,
+    GroupExpensesComponent,
     
     
   ],

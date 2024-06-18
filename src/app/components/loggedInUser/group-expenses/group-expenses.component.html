@@ -1,0 +1,41 @@
+<h3 class="text-center mt-3" style="color: blue">{{ groupName }} Expenses</h3>
+<div *ngIf="groupExpenses.length == 0">
+  <h4 class="text-center mt-5" style="color: red">
+    No expenses found in this group
+  </h4>
+</div>
+<div class="container mt-5 mb-3" *ngIf="groupExpenses.length > 0">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let expense of groupExpenses">
+      <div class="card shadow rounded-10" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title" style="color: teal">
+            Expense Description: {{ expense.expenseDescription }}
+          </h5>
+          <p class="card-text" style="color: blue">
+            Expense Amount: {{ expense.expenseAmount | currency : "INR" }}
+          </p>
+          <p
+            class="card-text"
+            style="color: blue"
+            *ngIf="expense.paidBy != username"
+          >
+            Paid By: {{ expense.paidBy }}
+          </p>
+          <p
+            class="card-text"
+            style="color: blue"
+            *ngIf="expense.paidBy == username"
+          >
+            Paid By: You
+          </p>
+          <p class="card-text" style="color: blue">
+            Date: {{ expense.createdAt | date : "dd/MM/yyyy" }}
+          </p>
+          <button class="btn btn-primary mx-1">View Details</button>
+          <button class="btn btn-warning">Mark as Settled</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

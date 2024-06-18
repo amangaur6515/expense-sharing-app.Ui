@@ -3,7 +3,7 @@
     <div class="col-md-4" *ngFor="let group of userBelongedGroups">
       <div class="card shadow rounded-10" style="width: 18rem">
         <img
-          src="https://picsum.photos/50/50?random={{ getRandomInt(100) }}"
+          src="https://about.fb.com/wp-content/uploads/2014/11/groupslogo2.jpg"
           class="card-img-top"
           alt="..."
         />
@@ -30,9 +30,13 @@
             Created by: You
           </p>
 
-          <a href="#" class="btn btn-primary" style="background-color: teal"
-            >View Group</a
+          <button
+            (click)="goToGroupExpenses(group.groupId, group.groupName)"
+            class="btn btn-primary"
+            style="background-color: teal"
           >
+            View Expenses
+          </button>
         </div>
       </div>
     </div>

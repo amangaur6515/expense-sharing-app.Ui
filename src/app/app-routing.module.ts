@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/anonymousUser/login/login.component';
 import { Error404Component } from './components/anonymousUser/error404/error404.component';
 import { UserHomeComponent } from './components/loggedInUser/user-home/user-home.component';
+import { GroupExpensesComponent } from './components/loggedInUser/group-expenses/group-expenses.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   //loggedin user
   {path:'user-home',component:UserHomeComponent},
 
+  {path:'group-expenses/:id/:groupName',component:GroupExpensesComponent},
 
 
   //404
