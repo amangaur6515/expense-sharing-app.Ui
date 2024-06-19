@@ -11,9 +11,12 @@ import { GroupManagementService } from 'src/app/services/group-management.servic
   styleUrls: ['./create-group.component.css']
 })
 export class CreateGroupComponent {
+  
+  groupMembers:string[]=[];
   emailForm: FormGroup;
   emails: string[] = [];
   username: any = ""
+
   constructor(private fb: FormBuilder,private _authService: AuthServiceService,private _groupManagementService:GroupManagementService,private toastr:ToastrService,private router:Router) {
     this.emailForm = this.fb.group({
       groupName: ['', Validators.required],

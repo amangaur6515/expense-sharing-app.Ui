@@ -1,4 +1,14 @@
 <h3 class="text-center mt-3" style="color: blue">{{ groupName }} Expenses</h3>
+<a>
+  <button
+    class="btn btn-primary"
+    (click)="goToCreateExpense()"
+    style="background-color: teal"
+  >
+    Create New Expense
+  </button>
+</a>
+
 <div *ngIf="groupExpenses.length == 0">
   <h4 class="text-center mt-5" style="color: red">
     No expenses found in this group
@@ -10,7 +20,7 @@
       <div class="card shadow rounded-10" style="width: 18rem">
         <div class="card-body">
           <h5 class="card-title" style="color: teal">
-            Expense Description: {{ expense.expenseDescription }}
+            {{ expense.expenseDescription }}
           </h5>
           <p class="card-text" style="color: blue">
             Expense Amount: {{ expense.expenseAmount | currency : "INR" }}

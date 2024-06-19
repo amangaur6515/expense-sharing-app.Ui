@@ -12,4 +12,8 @@ export class ExpenseManagementService {
   getGroupExpenses(groupId:number){
     return this.http.get(this.apiUrl+"GetGroupExpenses/"+groupId);
   }
+
+  createExpense(formData:any){
+    return this.http.post(this.apiUrl+"CreateExpense",formData);
+  }
 }

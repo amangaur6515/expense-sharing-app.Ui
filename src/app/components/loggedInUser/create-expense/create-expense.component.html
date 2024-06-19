@@ -1,0 +1,89 @@
+<h3 class="text-center mt-3 text-primary">Create Expense</h3>
+<div class="container mt-2">
+  <form [formGroup]="createExpenseForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input
+        id="description"
+        class="form-control"
+        formControlName="description"
+      />
+      <div
+        *ngIf="
+          createExpenseForm.controls['description'].invalid &&
+          createExpenseForm.controls['description'].touched
+        "
+        class="text-danger mt-2"
+      >
+        <small
+          *ngIf="createExpenseForm.controls['description']?.errors?.['description']"
+          >Description is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="amount">Amount:</label>
+      <input
+        id="amount"
+        type="number"
+        step="0.01"
+        class="form-control"
+        formControlName="amount"
+      />
+      <div
+        *ngIf="
+          createExpenseForm.controls['amount'].invalid &&
+          createExpenseForm.controls['amount'].touched
+        "
+        class="text-danger mt-2"
+      >
+        <small *ngIf="createExpenseForm.controls['amount'].errors?.['required']"
+          >Amount is required.</small
+        >
+        <small
+          *ngIf="createExpenseForm.controls['amount'].errors?.['positiveNumber']"
+          >Amount must be a positive number.</small
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="groupMembers.length > 0" class="mt-4 col-md-6">
+        <h3>Group Members:</h3>
+        <ul class="list-group">
+          <li *ngFor="let email of groupMembers" class="list-group-item">
+            <div class="row">
+              <div class="col-md-6">{{ email }}</div>
+              <div class="col-md-6">
+                <button
+                  class="btn btn-primary"
+                  (click)="includeMember(email)"
+                  [disabled]="email == username"
+                >
+                  Include
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="splitAmong.length > 0" class="mt-4 col-md-6">
+        <h3>Split Among</h3>
+        <ul class="list-group">
+          <li *ngFor="let email of splitAmong" class="list-group-item">
+            <div class="col-md-6">{{ email }}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-success mt-4 mb-3"
+      [disabled]="createExpenseForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

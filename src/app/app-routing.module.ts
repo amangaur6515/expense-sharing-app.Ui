@@ -5,7 +5,7 @@ import { Error404Component } from './components/anonymousUser/error404/error404.
 import { UserHomeComponent } from './components/loggedInUser/user-home/user-home.component';
 import { GroupExpensesComponent } from './components/loggedInUser/group-expenses/group-expenses.component';
 import { CreateGroupComponent } from './components/loggedInUser/create-group/create-group.component';
-
+import { CreateExpenseComponent } from './components/loggedInUser/create-expense/create-expense.component';
 
 
 
@@ -21,7 +21,7 @@ const routes: Routes = [
   {path:'user-home',component:UserHomeComponent},
   {path:'group-expenses/:id/:groupName',component:GroupExpensesComponent},
   {path:'create-group',component:CreateGroupComponent},
-
+  {path:'create-expense/:groupId',component:CreateExpenseComponent},
   //404
   {path:'**',component:Error404Component}
   

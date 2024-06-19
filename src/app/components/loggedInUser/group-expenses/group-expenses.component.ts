@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { ExpenseManagementService } from 'src/app/services/expense-management.service';
 import { GroupManagementService } from 'src/app/services/group-management.service';
@@ -17,7 +17,7 @@ export class GroupExpensesComponent {
   username:any="";
   //extract the group id and that is coming from the url using angular router
   //extract group name and group id from the url
-  constructor(private route: ActivatedRoute,private _expenseManagementService:ExpenseManagementService,private _authService:AuthServiceService) {
+  constructor(private route: ActivatedRoute,private _expenseManagementService:ExpenseManagementService,private _authService:AuthServiceService,private router:Router) {
     this.route.params.subscribe(params => {
       this.groupId = params['id'];
       this.groupName=params['groupName'];
@@ -34,5 +34,11 @@ export class GroupExpensesComponent {
       console.log(res);
       this.groupExpenses=res;
     })
+  }
+
+  goToCreateExpense(){
+    //redirect to create expense component
+    //pass the group id and group name
+    this.router.navigate(['/create-expense', this.groupId]);
   }
 }

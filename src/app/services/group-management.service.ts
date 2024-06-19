@@ -19,7 +19,9 @@ export class GroupManagementService {
     return this.http.post(this.apiUrl+"CreateGroup",formData);
   }
 
-  
+  getGroupDetails(groupId:number){
+    return this.http.get(this.apiUrl+"GetGroupDetails/"+groupId);
+  }
 
 
 }

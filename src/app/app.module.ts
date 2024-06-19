@@ -14,6 +14,7 @@ import { Error404Component } from './components/anonymousUser/error404/error404.
 import { UserHomeComponent } from './components/loggedInUser/user-home/user-home.component';
 import { GroupExpensesComponent } from './components/loggedInUser/group-expenses/group-expenses.component';
 import { CreateGroupComponent } from './components/loggedInUser/create-group/create-group.component';
+import { CreateExpenseComponent } from './components/loggedInUser/create-expense/create-expense.component';
 
 
 
@@ -26,9 +27,8 @@ import { CreateGroupComponent } from './components/loggedInUser/create-group/cre
     Error404Component,
     UserHomeComponent,
     GroupExpensesComponent,
-    CreateGroupComponent
-  
-    
+    CreateGroupComponent,
+    CreateExpenseComponent
   ],
   imports: [
     BrowserModule,
