@@ -4,6 +4,7 @@ import { LoginComponent } from './components/anonymousUser/login/login.component
 import { Error404Component } from './components/anonymousUser/error404/error404.component';
 import { UserHomeComponent } from './components/loggedInUser/user-home/user-home.component';
 import { GroupExpensesComponent } from './components/loggedInUser/group-expenses/group-expenses.component';
+import { CreateGroupComponent } from './components/loggedInUser/create-group/create-group.component';
 
 
 
@@ -18,9 +19,8 @@ const routes: Routes = [
 
   //loggedin user
   {path:'user-home',component:UserHomeComponent},
-
   {path:'group-expenses/:id/:groupName',component:GroupExpensesComponent},
-
+  {path:'create-group',component:CreateGroupComponent},
 
   //404
   {path:'**',component:Error404Component}

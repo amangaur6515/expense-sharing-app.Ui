@@ -33,7 +33,9 @@
             Date: {{ expense.createdAt | date : "dd/MM/yyyy" }}
           </p>
           <button class="btn btn-primary mx-1">View Details</button>
-          <button class="btn btn-warning">Mark as Settled</button>
+          <button class="btn btn-warning" *ngIf="expense.paidBy == username">
+            Mark as Settled
+          </button>
         </div>
       </div>
     </div>

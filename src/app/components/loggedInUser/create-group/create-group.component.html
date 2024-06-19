@@ -1,0 +1,88 @@
+<h3 class="text-center mt-3 text-primary">Create New Group</h3>
+<div class="container mt-5">
+  <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="groupName">Group Name:</label>
+      <input id="groupName" class="form-control" formControlName="groupName" />
+      <div
+        *ngIf="
+          emailForm.controls['groupName'].invalid &&
+          emailForm.controls['groupName'].touched
+        "
+        class="text-danger mt-2"
+      >
+        <small *ngIf="emailForm.controls['groupName']?.errors?.['required']"
+          >Group name is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="groupDescription">Group Description:</label>
+      <input
+        id="groupDescription"
+        class="form-control"
+        formControlName="groupDescription"
+      />
+      <div
+        *ngIf="
+          emailForm.controls['groupDescription'].invalid &&
+          emailForm.controls['groupDescription'].touched
+        "
+        class="text-danger mt-2"
+      >
+        <small
+          *ngIf="emailForm.controls['groupDescription']?.errors?.['required']"
+          >Group description is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="email">Email:</label>
+      <div class="input-group">
+        <input id="email" class="form-control" formControlName="email" />
+        <div class="input-group-append">
+          <button
+            type="button"
+            class="btn btn-primary mx-2"
+            (click)="addEmail()"
+          >
+            Add Email
+          </button>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          emailForm.controls['email'].invalid &&
+          emailForm.controls['email'].touched
+        "
+        class="text-danger mt-2"
+      >
+        <small *ngIf="emailForm.controls['email'].errors?.['required']"
+          >Email is required.</small
+        >
+        <small *ngIf="emailForm.controls['email'].errors?.['email']"
+          >Invalid email format.</small
+        >
+      </div>
+    </div>
+
+    <div *ngIf="emails.length > 0" class="mt-4">
+      <h3>Members List:</h3>
+      <ul class="list-group">
+        <li *ngFor="let email of emails" class="list-group-item">
+          {{ email }}
+        </li>
+      </ul>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-success mt-4 mb-3"
+      [disabled]="emails.length === 1"
+    >
+      Submit
+    </button>
+  </form>
+</div>

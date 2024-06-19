@@ -15,6 +15,10 @@ export class GroupManagementService {
     return this.http.get(this.apiUrl+"GetUserBelongedGroups/"+userEmail);
   }
 
+  createGroup(formData:any){
+    return this.http.post(this.apiUrl+"CreateGroup",formData);
+  }
+
   
 
 
