@@ -6,6 +6,7 @@ import { UserHomeComponent } from './components/loggedInUser/user-home/user-home
 import { GroupExpensesComponent } from './components/loggedInUser/group-expenses/group-expenses.component';
 import { CreateGroupComponent } from './components/loggedInUser/create-group/create-group.component';
 import { CreateExpenseComponent } from './components/loggedInUser/create-expense/create-expense.component';
+import { ExpenseDetailsComponent } from './components/loggedInUser/expense-details/expense-details.component';
 
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'group-expenses/:id/:groupName',component:GroupExpensesComponent},
   {path:'create-group',component:CreateGroupComponent},
   {path:'create-expense/:groupId',component:CreateExpenseComponent},
+  {path:'expense-details/:expenseId/:expenseDescription',component:ExpenseDetailsComponent},
   //404
   {path:'**',component:Error404Component}
   

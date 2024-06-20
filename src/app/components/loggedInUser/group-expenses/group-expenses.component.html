@@ -42,7 +42,14 @@
           <p class="card-text" style="color: blue">
             Date: {{ expense.createdAt | date : "dd/MM/yyyy" }}
           </p>
-          <button class="btn btn-primary mx-1">View Details</button>
+          <button
+            class="btn btn-primary mx-1"
+            (click)="
+              goToExpenseDetails(expense.expenseId, expense.expenseDescription)
+            "
+          >
+            View Details
+          </button>
           <button class="btn btn-warning" *ngIf="expense.paidBy == username">
             Mark as Settled
           </button>

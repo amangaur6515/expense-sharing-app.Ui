@@ -41,4 +41,10 @@ export class GroupExpensesComponent {
     //pass the group id and group name
     this.router.navigate(['/create-expense', this.groupId]);
   }
+  goToExpenseDetails(expenseId:number,expenseDescription:string){
+    //redirect to expense details component
+    //pass the expense id 
+    this.router.navigate(['/expense-details', expenseId,expenseDescription]);
+
+  }
 }

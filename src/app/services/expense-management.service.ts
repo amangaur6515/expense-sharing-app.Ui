@@ -16,4 +16,8 @@ export class ExpenseManagementService {
   createExpense(formData:any){
     return this.http.post(this.apiUrl+"CreateExpense",formData);
   }
+
+  getExpenseDetails(expenseId:number){
+    return this.http.get(this.apiUrl+"GetExpenseDetails/"+expenseId);
+  }
 }
