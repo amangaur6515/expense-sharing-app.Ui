@@ -35,7 +35,7 @@ export class LoginComponent {
       this.toastr.success("Successfully Login","Expense Sharing App ");
       //if username is of admin, go to admin homepage
       if(res.username=="admin@nagarro.com"){
-        this._router.navigate(['/admin-home'])
+        this._router.navigate(['/all-expenses'])
       }
       else{
         this._router.navigate(['/user-home'])

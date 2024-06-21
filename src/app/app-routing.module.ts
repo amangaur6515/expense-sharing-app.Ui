@@ -9,6 +9,8 @@ import { CreateExpenseComponent } from './components/loggedInUser/create-expense
 import { ExpenseDetailsComponent } from './components/loggedInUser/expense-details/expense-details.component';
 import { GroupDetailsComponent } from './components/loggedInUser/group-details/group-details.component';
 import { authGuardGuard } from './guards/auth-guard.guard';
+import { AllExpensesComponent } from './components/admin/all-expenses/all-expenses.component';
+import { adminGuard } from './guards/admin.guard';
 
 
 
@@ -27,6 +29,9 @@ const routes: Routes = [
   {path:'create-expense/:groupId',component:CreateExpenseComponent,canActivate:[authGuardGuard]},
   {path:'expense-details/:expenseId/:expenseDescription',component:ExpenseDetailsComponent,canActivate:[authGuardGuard]},
   {path:'group-details/:groupId',component:GroupDetailsComponent,canActivate:[authGuardGuard]},
+
+  //admin
+  {path:'all-expenses',component:AllExpensesComponent,canActivate:[adminGuard]},  
   //404
   {path:'**',component:Error404Component}
   

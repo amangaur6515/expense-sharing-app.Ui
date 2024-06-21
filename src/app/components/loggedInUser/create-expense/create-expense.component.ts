@@ -76,4 +76,8 @@ export class CreateExpenseComponent {
     })
   }
 
+  goBack(){
+    this.router.navigate(['/group-expenses',this.groupId,this.groupName]);
+  }
+
 }

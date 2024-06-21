@@ -1,0 +1,29 @@
+<table class="table table-striped mt-5">
+  <thead>
+    <tr>
+      <th>Group Name</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Created Date</th>
+      <th>Paid By</th>
+      <th>Settled</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let expense of allExpenses">
+      <td>{{ expense.groupName }}</td>
+      <td>{{ expense.expenseDescription }}</td>
+      <td>{{ expense.amount | currency : "INR" }}</td>
+      <td>{{ expense.createdDate | date : "dd/MM/yyyy" }}</td>
+      <td>{{ expense.paidByUserEmail }}</td>
+      <td>
+        <div *ngIf="expense.isSettled">Yes</div>
+        <div *ngIf="!expense.isSettled">No</div>
+      </td>
+      <td>
+        <button class="btn btn-warning">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
