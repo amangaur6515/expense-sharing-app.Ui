@@ -20,6 +20,7 @@ export class UserHomeComponent {
   getUserBelongedGroups(){
     this._groupManagementService.getUserBelongedGroups(this.username).subscribe((res:any)=>{
       this.userBelongedGroups=res;
+      console.log(res);
     })
   }
 
@@ -31,16 +32,16 @@ export class UserHomeComponent {
     //this.router.navigate(['/group-expenses', groupId]);
     //pass the group name also in url
     this.router.navigate(['/group-expenses', groupId,groupName]);
+  }
 
-
+  goToGroupDetails(groupId:number){
+    //redirect to group details component
+    //pass the group id 
+    this.router.navigate(['/group-details', groupId]);
 
   }
 
-  //random integer generator
-  getRandomInt(max:number) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
-
+ 
   
 
 

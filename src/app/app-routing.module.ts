@@ -7,6 +7,8 @@ import { GroupExpensesComponent } from './components/loggedInUser/group-expenses
 import { CreateGroupComponent } from './components/loggedInUser/create-group/create-group.component';
 import { CreateExpenseComponent } from './components/loggedInUser/create-expense/create-expense.component';
 import { ExpenseDetailsComponent } from './components/loggedInUser/expense-details/expense-details.component';
+import { GroupDetailsComponent } from './components/loggedInUser/group-details/group-details.component';
+import { authGuardGuard } from './guards/auth-guard.guard';
 
 
 
@@ -19,11 +21,12 @@ const routes: Routes = [
 
 
   //loggedin user
-  {path:'user-home',component:UserHomeComponent},
-  {path:'group-expenses/:id/:groupName',component:GroupExpensesComponent},
-  {path:'create-group',component:CreateGroupComponent},
-  {path:'create-expense/:groupId',component:CreateExpenseComponent},
-  {path:'expense-details/:expenseId/:expenseDescription',component:ExpenseDetailsComponent},
+  {path:'user-home',component:UserHomeComponent,canActivate:[authGuardGuard]},
+  {path:'group-expenses/:id/:groupName',component:GroupExpensesComponent,canActivate:[authGuardGuard]},
+  {path:'create-group',component:CreateGroupComponent,canActivate:[authGuardGuard]},
+  {path:'create-expense/:groupId',component:CreateExpenseComponent,canActivate:[authGuardGuard]},
+  {path:'expense-details/:expenseId/:expenseDescription',component:ExpenseDetailsComponent,canActivate:[authGuardGuard]},
+  {path:'group-details/:groupId',component:GroupDetailsComponent,canActivate:[authGuardGuard]},
   //404
   {path:'**',component:Error404Component}
   

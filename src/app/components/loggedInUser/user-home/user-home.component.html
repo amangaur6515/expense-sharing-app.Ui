@@ -27,22 +27,28 @@
             style="color: blue"
             *ngIf="group.createdBy != username"
           >
-            Created by: {{ group.createdBy }}
+            Admin: {{ group.createdBy }}
           </p>
           <p
             class="card-text"
             *ngIf="group.createdBy == username"
             style="color: blue"
           >
-            Created by: You
+            Admin: You
           </p>
+          <button
+            class="btn btn-primary mx-3"
+            (click)="goToGroupDetails(group.groupId)"
+          >
+            Details
+          </button>
 
           <button
             (click)="goToGroupExpenses(group.groupId, group.groupName)"
             class="btn btn-primary"
             style="background-color: teal"
           >
-            View Expenses
+            Expenses
           </button>
         </div>
       </div>

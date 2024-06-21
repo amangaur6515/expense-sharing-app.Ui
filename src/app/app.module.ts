@@ -16,6 +16,7 @@ import { GroupExpensesComponent } from './components/loggedInUser/group-expenses
 import { CreateGroupComponent } from './components/loggedInUser/create-group/create-group.component';
 import { CreateExpenseComponent } from './components/loggedInUser/create-expense/create-expense.component';
 import { ExpenseDetailsComponent } from './components/loggedInUser/expense-details/expense-details.component';
+import { GroupDetailsComponent } from './components/loggedInUser/group-details/group-details.component';
 
 
 
@@ -30,7 +31,8 @@ import { ExpenseDetailsComponent } from './components/loggedInUser/expense-detai
     GroupExpensesComponent,
     CreateGroupComponent,
     CreateExpenseComponent,
-    ExpenseDetailsComponent
+    ExpenseDetailsComponent,
+    GroupDetailsComponent
   ],
   imports: [
     BrowserModule,

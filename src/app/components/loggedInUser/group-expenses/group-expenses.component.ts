@@ -47,4 +47,11 @@ export class GroupExpensesComponent {
     this.router.navigate(['/expense-details', expenseId,expenseDescription]);
 
   }
+  settleExpense(expenseId:number){
+    //settle the expense
+    this._expenseManagementService.settleExpense(expenseId).subscribe((res:any)=>{
+      console.log(res);
+      this.getGroupExpenses();
+    })
+  }
 }

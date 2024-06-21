@@ -50,8 +50,14 @@
           >
             View Details
           </button>
-          <button class="btn btn-warning" *ngIf="expense.paidBy == username">
-            Mark as Settled
+          <button
+            class="btn btn-warning"
+            *ngIf="expense.paidBy == username"
+            (click)="settleExpense(expense.expenseId)"
+            [disabled]="expense.isSettled"
+          >
+            <div *ngIf="!expense.isSettled">Mark as Settled</div>
+            <div *ngIf="expense.isSettled">Settled</div>
           </button>
         </div>
       </div>

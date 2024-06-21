@@ -20,4 +20,7 @@ export class ExpenseManagementService {
   getExpenseDetails(expenseId:number){
     return this.http.get(this.apiUrl+"GetExpenseDetails/"+expenseId);
   }
+  settleExpense(expenseId:number){
+    return this.http.get(this.apiUrl+"SettleExpense/"+expenseId);
+  }
 }

@@ -11,10 +11,14 @@
     <!-- Add a loop here to iterate over the expense details -->
     <tr *ngFor="let expense of expenseDetails">
       <td>{{ expense.userEmail }}</td>
-      <td>{{ expense.amount }}</td>
+      <td>{{ expense.amount | currency : "INR" }}</td>
 
       <td>
-        <button class="btn btn-success" *ngIf="expense.userEmail == username">
+        <button
+          class="btn btn-success"
+          *ngIf="expense.userEmail == username"
+          [disabled]="expense.amount == 0"
+        >
           Pay
         </button>
       </td>
