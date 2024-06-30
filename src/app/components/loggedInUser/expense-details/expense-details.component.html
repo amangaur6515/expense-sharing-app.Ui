@@ -16,8 +16,11 @@
       <td>
         <button
           class="btn btn-success"
-          *ngIf="expense.userEmail == username"
-          [disabled]="expense.amount == 0"
+          *ngIf="
+            checkIfUserExist(expense.userEmail) === true &&
+            expense.userEmail == username
+          "
+          [disabled]="expense.amount === 0"
         >
           Pay
         </button>

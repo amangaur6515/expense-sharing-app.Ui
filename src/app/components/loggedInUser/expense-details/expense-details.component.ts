@@ -33,5 +33,17 @@ export class ExpenseDetailsComponent {
     })
   }
 
+  //check if a useremail exist in the splitamong list
+  checkIfUserExist(email:string){
+    console.log(this.expenseDetails.includes(email));
+    //foreach  array of object in expenseDetails, check if the email exists the object
+    for(let obj of this.expenseDetails){
+      if(obj.userEmail==email){
+        return true;
+      }
+    }
+    return false;
+  }
+
   
 }

@@ -27,6 +27,8 @@ export class CreateExpenseComponent {
 
     //get the current user name
     this.username=_authService.getUsername();
+    //push the current user in the split among list
+    this.splitAmong.push(this.username);
     //get the group id from the url
     this.route.params.subscribe(params => {
       this.groupId = params['groupId'];

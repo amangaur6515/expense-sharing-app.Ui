@@ -2,7 +2,16 @@
 <a (click)="goBack()" routerLink="">Back</a>
 
 <div class="container mt-2">
-  <form [formGroup]="createExpenseForm" (ngSubmit)="onSubmit()">
+  import { ReactiveFormsModule } from '@angular/forms';
+
+  @NgModule({
+    imports: [
+      // other imports
+      ReactiveFormsModule
+    ],
+    // other module configurations
+  })
+  export class YourModule { }
     <div class="form-group">
       <label for="description">Description:</label>
       <input
